@@ -1,8 +1,27 @@
 
-import React from 'react';
+import React,{useEffect} from 'react';
 import "./Home.css";
+
+
+
 import Product from "./Product"
 function Home() {
+  
+    let API = "https://data.mongodb-api.com/app/data-ztyck/endpoint/data/v1";
+      const fetchApiData = async(url) => {
+        try{
+        const res = await fetch(url);
+        const data= await res.json();
+        console.log(data);
+        } catch(error){
+          console.log(error);
+        }
+      };
+
+    useEffect(() => {
+      fetchApiData(API);
+    }, [])
+
     return (
         <div className='home'>
            <div className="home__container">

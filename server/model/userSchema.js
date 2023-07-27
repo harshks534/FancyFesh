@@ -29,7 +29,7 @@ const userSchema = new mongooose.Schema({
                required:true
            }
        }
-   ]
+   ] 
 })
 
 // hashing Password

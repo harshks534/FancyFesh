@@ -4,8 +4,17 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from 'react-router-dom';
 import { useStateValue } from "./StateProvider";
+import { useRadioGroup } from '@material-ui/core';
+
+
+
+
 function Header() {
     const [{basket}, dispatch] = useStateValue();
+
+      
+
+
     return (
         <div className='header'>
         <Link to="/">
@@ -17,10 +26,10 @@ function Header() {
             </div>
             
             <div className="header__nav">
-               <Link to='/Login'>
+               <Link to='/Login'> 
                <div className='header__option'>
                     <spam className='header__optionLineOne'>
-                        Hello User
+                        Hello 
                     </spam>
                     <spam className='header__optionLineOne'>
                         Log In
@@ -37,7 +46,8 @@ function Header() {
                         & Orders
                     </spam>
                 </div>
- 
+
+                <Link to='/YourPrimeAccount'>
                 <div className='header__option'>
                     <spam className='header__optionLineOne'>
                         Your
@@ -46,6 +56,7 @@ function Header() {
                         Prime
                     </spam>
                 </div>
+                </Link>
                 
                 <Link to="/checkout">
                 <div className='header__optionBasket'>

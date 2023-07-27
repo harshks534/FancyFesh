@@ -39,7 +39,16 @@ function Login() {
     const history = useNavigate();
      const [email, setEmail] =useState('');
      const [password, setPassword]= useState('');
+
+
+
       
+     
+
+
+
+
+
      const loginUser = async(e) =>{
         e.preventDefault();
         const res = await fetch('/login',{
@@ -53,11 +62,14 @@ function Login() {
         });
 
         const data = res.json();
+
+
         if(res.status === 400 || !data){
             window.alert("Invalid Crenditials");
         } else{
             window.alert("Login Successfull");
             history("/");
+
         }
 
      }
