@@ -32,6 +32,9 @@ function CheckoutProduct({id, image, title, price, rating}) {
            </div>
             
         </div>
+        
+
+        
     )
 }
 

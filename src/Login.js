@@ -4,6 +4,7 @@ import './Login.css'
 import { Link,useNavigate } from "react-router-dom";
 import { auth } from "./firebase";
 import './Signup';
+import  photo1 from './images/Free_Sample_By_Wix.jpg'
 
 function Login() {
     // const history = useHistory();
@@ -81,8 +82,9 @@ function Login() {
             <Link to='/'>
                 <img
                     className="login__logo"
-                    src='https://tse4.mm.bing.net/th?id=OIP.OVaV5Z7H3ukt9H8aEbFepwHaCO&pid=Api&P=0&w=560&h=168' 
-                />
+                    src={photo1} alt='Free_Sample_By_Wix.jpg'>
+                    </img>
+              
             </Link>
 
             <div className='login__container'>
@@ -112,7 +114,10 @@ function Login() {
 
               <Link to="/Signup"><button  className='login__registerButton'>Create your Amazon Account</button></Link>  
             </div>
+            <p>Note : Click the FancyFesh Logo to go "Home"</p>
         </div>
+
+       
     )
 }
 

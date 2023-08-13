@@ -1,26 +1,39 @@
 
 import React,{useEffect} from 'react';
+import { useContext } from 'react';
+import { AppContext } from './Context';
+import { useGlobalContext } from './Context';
 import "./Home.css";
-
+import {useNavigate} from "react-router-dom";
 
 
 import Product from "./Product"
 function Home() {
-  
-    let API = "https://data.mongodb-api.com/app/data-ztyck/endpoint/data/v1";
-      const fetchApiData = async(url) => {
-        try{
-        const res = await fetch(url);
-        const data= await res.json();
-        console.log(data);
-        } catch(error){
-          console.log(error);
-        }
-      };
 
-    useEffect(() => {
-      fetchApiData(API);
-    }, [])
+
+   
+  //  const name = useContext(AppContext);
+   const name = useGlobalContext();
+   
+  
+  
+    // let API = "https://data.mongodb-api.com/app/data-ztyck/endpoint/data/v1";
+    //   const fetchApiData = async(url) => {
+    //     try{
+    //     const res = await fetch(url);
+    //     const data= await res.json();
+    //     console.log(data);
+    //     } catch(error){
+    //       console.log(error);
+    //     }
+    //   };
+
+    // useEffect(() => {
+    //   fetchApiData(API);
+    // }, [])
+
+    
+    
 
     return (
         <div className='home'>
@@ -83,10 +96,27 @@ function Home() {
                  rating={5}
                />
                
-          </div>
+          </div> 
+       
+     
+
            </div>
-        </div>
+        </div> 
+
+         
+    
+
+
     );
 }
 
 export default Home
+
+// <>
+
+// <div>
+//   My Home Page
+// </div>
+// <p>{name}</p>
+
+// </>

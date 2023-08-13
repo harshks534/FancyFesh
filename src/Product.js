@@ -10,6 +10,7 @@ function Product({id,title, image, price, rating}) {
 
     function addToBasket() {
     //dispatch item to data layer
+    
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
@@ -20,8 +21,8 @@ function Product({id,title, image, price, rating}) {
         rating: rating,
       },
     });
+    window.alert('Prodect Added to Basket')
 };
-
     return (
         <div className="product">
             <div className="product__info">
@@ -37,12 +38,13 @@ function Product({id,title, image, price, rating}) {
                     <p>⭐</p>
                 ))}
               </div>
-
             </div>
             <img src={image} alt=" " />
-            <button onClick={addToBasket}>Add to Basket</button>
+            <button onClick={addToBasket} >Add to Basket</button>  
         </div>   
     );
 }
+
+
 
 export default Product;

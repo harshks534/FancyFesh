@@ -2,11 +2,44 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const authenticate = require("../middleware/authenticate"); 
+
+const cookieParser = require("cookie-parser");
+router.use(cookieParser());
+
+// const stripe = require('../Stripecheck')
+// ap.use('/api/stripe', stripe);
+
+
+//-----------------------------------------------------
+
+
+//-----------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 require('../db/conn');
 const User = require("../model/userSchema");
+const Data = require("../model/dataSchema")
 router.get('/',(req,res) => {
     res.send(`Hello World ===from server router js`);
+});
+
+router.get('/getdata',authenticate,(req,res)=>{
+   console.log("hello my About");
+   res.send(req.rootUser);
 });
 
 // router.post('/signup',(req,res) =>{
@@ -109,4 +142,26 @@ router.post('/login', async (req,res)=>{
           console.log(err);
        }
 })
+
+  //Prime Account
+  router.get('/YourPrimeAccount',authenticate,(req,res)=>{
+    
+    console.log("hello from prime Account");
+    res.send(req.rootUser);
+   });
+
+
+   router.get('/Logout',authenticate,(req,res)=>{
+    
+    console.log("hello from Logout");
+    res.clearCookie('jwtoken',{path:'/'});
+    res.status(200).send('User logout');
+   });
+ 
+
+   router.get('/Hom', authenticate,(req,res)=>{
+    console.log('hello prodata')
+    res.send(req.rootData)
+   })
+ 
 module.exports = router;

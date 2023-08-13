@@ -13,7 +13,7 @@ const userSchema = new mongooose.Schema({
    email:{
        type:String,
        required:true
-   },
+   }, 
    password:{
        type:String,
        required:true
@@ -34,8 +34,9 @@ const userSchema = new mongooose.Schema({
 
 // hashing Password
 userSchema.pre('save', async function(next){
-    console.log('dfcjdgcn')
+    console.log('hi i am pre')
     if(this.isModified('password')){
+        console.log('hi am pre password')
         this.password = await bcrypt.hash(this.password,12);
         this.cpassword = await bcrypt.hash(this.cpassword,12);
     }

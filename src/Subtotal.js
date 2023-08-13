@@ -4,6 +4,8 @@ import CurrencyFormat from "react-currency-format";
 import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
 import {useStateValue} from "./StateProvider"
 import { getBasketTotal } from './reducer';
+import { Link } from 'react-router-dom';
+import Str from './Stripes/Stripepay';
 
 function Subtotal() {
     const [{basket},dispatch] = useStateValue();
@@ -15,9 +17,10 @@ function Subtotal() {
                   <p>
                       Subtotal ({basket.length} items):
                       <strong>{value}</strong>
+                      
                   </p>
                   <small className="subtotal__gift">
-                    <input type="checkbox" /> This order contains a gift
+                    {/* <input type="checkbox" /> This order contains a gift */}
                   </small>
                   </>
               )}
@@ -27,7 +30,8 @@ function Subtotal() {
               thousandSeparator={true}
               prefix={"₹"}
           />  
-          <button>Proceed to Checkout</button>
+       <Link to='../Stripepay'>    <button>Proceed to Checkout</button></Link>
+       {/* <PayButton cartItem/> */}
         </div>
     )
 }
